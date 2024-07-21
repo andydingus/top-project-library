@@ -26,22 +26,19 @@ function Book(title, author, pages, read) {
     };
 }
 
-function addBookToLibrary(book) {
-    // this.userInput = prompt('Add to your library?');
-    // if (this.userInput == 'y') {
-    //     myLibrary.push(book);
-    //     alert('Book added.');
-    // } else {
-    //     alert('Book not added.');
-    // }
-    myLibrary.push(book)
-    alert('Book added.');
+function addBookToLibrary() {
+    this.userInput = prompt('Add to your library?');
+    if (this.userInput == 'y') {
+        myLibrary.push(theHobbit);
+        alert('Book added.');
+    } else {
+        alert('Book not added.');
+    }
 }
 
 function displayLibrary() {
     
 }
-
 
 btnAddBook.addEventListener("click", addBookToLibrary);
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
