@@ -1,1 +1,8 @@
 /* Ready to be styled! */
+* {
+    margin: 0;
+    padding: 0;
+}
+div form {
+    background-color: red;
+}

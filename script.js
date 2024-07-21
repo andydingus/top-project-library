@@ -1,6 +1,14 @@
 // Ready to be scripted!
 const myLibrary = [];
-// Add a const that takes the Add button from the HTML
+
+// HTML Elements
+const bookTitle = document.getElementById('title');
+const bookAuthor = document.getElementById('author');
+const bookPages = document.getElementById('pages');
+const bookRead = document.getElementById('read');
+const btnAddBook = document.getElementById('btnAddBook');
+
+
 
 // Stuff to do
 // 1̶)̶ C̶r̶e̶a̶t̶e̶ f̶u̶n̶c̶t̶i̶o̶n̶ t̶h̶a̶t̶ c̶a̶n̶ t̶a̶k̶e̶ u̶s̶e̶r̶'̶s̶ i̶n̶p̶u̶t̶ a̶n̶d̶ s̶t̶o̶r̶e̶ t̶h̶e̶ n̶e̶w̶ b̶o̶o̶k̶ o̶b̶j̶e̶c̶t̶s̶ i̶n̶t̶o̶ a̶n̶ a̶r̶r̶a̶y̶ 
@@ -19,19 +27,23 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(book) {
-    this.userInput = prompt('Add to your library?');
-    if (this.userInput == 'y') {
-        myLibrary.push(book);
-        alert('Book added.');
-    } else {
-        alert('Book not added.');
-    }
+    // this.userInput = prompt('Add to your library?');
+    // if (this.userInput == 'y') {
+    //     myLibrary.push(book);
+    //     alert('Book added.');
+    // } else {
+    //     alert('Book not added.');
+    // }
+    myLibrary.push(book)
+    alert('Book added.');
 }
 
 function displayLibrary() {
     
 }
 
+
+btnAddBook.addEventListener("click", addBookToLibrary);
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
 
 // addBookToLibrary(theHobbit);
