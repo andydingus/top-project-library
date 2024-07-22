@@ -1,7 +1,10 @@
 /* Ready to be styled! */
 * {
     margin: 0;
-    padding: 0;
+}
+
+div {
+    padding: 5px;
 }
 div form {
     background-color: red;

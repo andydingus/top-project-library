@@ -6,6 +6,7 @@ const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
 const bookPages = document.getElementById('pages');
 const bookRead = document.getElementById('read');
+const btnDisplayLibrary = document.getElementById('btnDisplayLibrary');
 const btnAddBook = document.getElementById('btnAddBook');
 
 
@@ -26,6 +27,7 @@ function Book(title, author, pages, read) {
     };
 }
 
+// Step 2 stuff
 function addBookToLibrary() {
     this.userInput = prompt('Add to your library?');
     if (this.userInput == 'y') {
@@ -37,10 +39,25 @@ function addBookToLibrary() {
 }
 
 function displayLibrary() {
-    
+    for (let i = 0; i < myLibrary.length; i++) {
+        console.log('This should be ran 3 times!')
+    } 
 }
 
-btnAddBook.addEventListener("click", addBookToLibrary);
+// Step 3 stuff
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
+const theGiver = new Book("The Giver", "Lois Lowry", 179, "read");
+const theBFG = new Book("The B.F.G.", "Roald Dahl", 208, "not read yet");
+
+// Manually adding to the library
+myLibrary.push(theHobbit);
+myLibrary.push(theBFG);
+myLibrary.push(theGiver);
+
+btnDisplayLibrary.addEventListener("click", displayLibrary)
+
+// Step 4 stuff
+btnAddBook.addEventListener("click", addBookToLibrary);
+
 
 // addBookToLibrary(theHobbit);
