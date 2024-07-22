@@ -10,7 +10,17 @@ div form {
     background-color: red;
 }
 
+.library {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    padding: 0;
+}
 /* Styles for when the library is displayed */
+/* Look over past projects for styling cards (admin dashboard) */
 .book.card {
+    height: 200px;
     background-color: green;
+    border-color: black;
+    border-style: solid;
 }

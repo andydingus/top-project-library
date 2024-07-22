@@ -42,7 +42,7 @@ function addBookToLibrary() {
 function displayLibrary() {
     for (let i = 0; i < myLibrary.length; i++) {
         const bookCard = document.createElement('div');
-
+        bookCard.textContent = myLibrary[i].title;
         bookCard.setAttribute('class', 'book card');
         divLibrary.appendChild(bookCard);
     }
