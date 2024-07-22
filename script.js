@@ -6,6 +6,7 @@ const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
 const bookPages = document.getElementById('pages');
 const bookRead = document.getElementById('read');
+const divLibrary = document.querySelector('.library');
 const btnDisplayLibrary = document.getElementById('btnDisplayLibrary');
 const btnAddBook = document.getElementById('btnAddBook');
 
@@ -40,8 +41,13 @@ function addBookToLibrary() {
 
 function displayLibrary() {
     for (let i = 0; i < myLibrary.length; i++) {
-        console.log('This should be ran 3 times!')
-    } 
+        const bookCard = document.createElement('div');
+
+        bookCard.setAttribute('class', 'book card');
+        divLibrary.appendChild(bookCard);
+    }
+    
+    
 }
 
 // Step 3 stuff

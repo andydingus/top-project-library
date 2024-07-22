@@ -9,3 +9,8 @@ div {
 div form {
     background-color: red;
 }
+
+/* Styles for when the library is displayed */
+.book.card {
+    background-color: green;
+}
