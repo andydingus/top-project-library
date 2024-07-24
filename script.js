@@ -39,6 +39,7 @@ function addBookToLibrary() {
     }
 }
 
+// Fix this function, when the library is displayed, the button should remove the library
 function displayLibrary() {
     for (let i = 0; i < myLibrary.length; i++) {
         const bookCard = document.createElement('div');
@@ -49,8 +50,7 @@ function displayLibrary() {
         divLibrary.appendChild(bookCard);
         bookCard.appendChild(bookCardText);
     }
-    
-    
+    btnDisplayLibrary.textContent = 'Remove display';
 }
 
 // Step 3 stuff
