@@ -12,7 +12,6 @@ const newBookForm = document.getElementById('newBookForm');
 const btnDisplayLibrary = document.getElementById('btnDisplayLibrary');
 const btnNewBookForm = document.getElementById('btnNewBookForm');
 const btnAddBook = document.getElementById('btnAddBook');
-const btnCreateBook = document.getElementById('btnCreateBook');
 
 
 
@@ -84,7 +83,13 @@ btnNewBookForm.addEventListener('click', () => {
     }
 });
 
-btnCreateBook.addEventListener('click', (event) => {
+newBookForm.addEventListener('submit', (event) => {
+    // https://stackoverflow.com/questions/3547035/getting-html-form-values
+    // Check link above for help completing this function
+    let formData = new FormData(newBookForm);
+    // output as an object
+    console.log(Object.fromEntries(formData));
+
     alert('Book created.');
     event.preventDefault();
 })
