@@ -6,9 +6,6 @@
 div {
     padding: 5px;
 }
-div form {
-    background-color: red;
-}
 
 .library {
     display: flex;

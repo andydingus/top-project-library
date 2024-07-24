@@ -7,8 +7,12 @@ const bookAuthor = document.getElementById('author');
 const bookPages = document.getElementById('pages');
 const bookRead = document.getElementById('read');
 const divLibrary = document.querySelector('.library');
+const newBookForm = document.getElementById('newBookForm');
+
 const btnDisplayLibrary = document.getElementById('btnDisplayLibrary');
+const btnNewBookForm = document.getElementById('btnNewBookForm');
 const btnAddBook = document.getElementById('btnAddBook');
+const btnCreateBook = document.getElementById('btnCreateBook');
 
 
 
@@ -72,7 +76,18 @@ myLibrary.push(theGiver);
 btnDisplayLibrary.addEventListener("click", displayLibrary)
 
 // Step 4 stuff
+newBookForm.style.display = 'none'; // Hide the display until NEW BOOK button is pressed
 btnAddBook.addEventListener("click", addBookToLibrary);
+btnNewBookForm.addEventListener('click', () => {
+    if (newBookForm.style.display = 'none') {
+        newBookForm.style.display = 'block';
+    }
+});
+
+btnCreateBook.addEventListener('click', (event) => {
+    alert('Book created.');
+    event.preventDefault();
+})
 
 
 // addBookToLibrary(theHobbit);
