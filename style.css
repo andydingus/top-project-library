@@ -15,6 +15,7 @@ div {
 /* Styles for when the library is displayed */
 .book.card {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 200px;

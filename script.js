@@ -43,16 +43,35 @@ function addBookToLibrary(book) {
     }
 }
 
+// Part of Step 5
+function removeFromLibrary() {
+    const index = myLibrary.indexOf(this);
+    if (index > -1) { // only splice array when item is found
+        array.splice(index, 1); // 2nd parameter means remove one item only
+    }
+    console.log(myLibrary);
+}
+
+// Working on Step 5 stuff. removeFromLibraryButton doesn't get an eventListener for some reason, look to fix that
 function displayLibrary() {
     if(divLibrary.innerHTML.trim().length == 0) {
         for (let i = 0; i < myLibrary.length; i++) {
             const bookCard = document.createElement('div');
             const bookCardText = document.createElement('p');
+            const removeFromLibraryButton = document.createElement('button');
             bookCardText.textContent = myLibrary[i].title;
+            removeFromLibraryButton.textContent = 'Remove from library';
             bookCard.setAttribute('class', 'book card');
+
+            
+            
     
             divLibrary.appendChild(bookCard);
             bookCard.appendChild(bookCardText);
+            bookCard.appendChild(removeFromLibraryButton);
+
+            // Set eventListener for the removeFromLibrary button
+            removeFromLibraryButton.addEventListener('click', removeFromLibrary())
         }
 
         if (myLibrary.length == 0) {
@@ -78,8 +97,6 @@ btnNewBookForm.addEventListener('click', () => {
 });
 
 newBookForm.addEventListener('submit', (event) => {
-    // https://stackoverflow.com/questions/3547035/getting-html-form-values
-    // Check link above for help completing this function
     const formData = new FormData(event.target);
     const formProps = Object.fromEntries(formData);
 
