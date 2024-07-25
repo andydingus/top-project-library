@@ -11,7 +11,6 @@ const newBookForm = document.getElementById('newBookForm');
 
 const btnDisplayLibrary = document.getElementById('btnDisplayLibrary');
 const btnNewBookForm = document.getElementById('btnNewBookForm');
-const btnAddBook = document.getElementById('btnAddBook');
 
 
 
@@ -29,20 +28,21 @@ function Book(title, author, pages, read) {
     this.info = function() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
     };
+
+    addBookToLibrary(this);
 }
 
 // Step 2 stuff
-function addBookToLibrary() {
-    this.userInput = prompt('Add to your library?');
+function addBookToLibrary(book) {
+    this.userInput = prompt(`Add "${book.title}" to your library? (y/n)`);
     if (this.userInput == 'y') {
-        myLibrary.push(theHobbit);
+        myLibrary.push(book);
         alert('Book added.');
     } else {
         alert('Book not added.');
     }
 }
 
-// Fix this function, when the library is displayed, the button should remove the library
 function displayLibrary() {
     if(divLibrary.innerHTML.trim().length == 0) {
         for (let i = 0; i < myLibrary.length; i++) {
@@ -54,7 +54,12 @@ function displayLibrary() {
             divLibrary.appendChild(bookCard);
             bookCard.appendChild(bookCardText);
         }
-        btnDisplayLibrary.textContent = 'Remove display';
+
+        if (myLibrary.length == 0) {
+            btnDisplayLibrary.textContent = 'Display library'
+        } else {
+            btnDisplayLibrary.textContent = 'Remove display';
+        }
         
     } else {
         divLibrary.replaceChildren();
@@ -62,21 +67,10 @@ function displayLibrary() {
     }
 }
 
-// Step 3 stuff
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, "not read yet");
-const theGiver = new Book("The Giver", "Lois Lowry", 179, "read");
-const theBFG = new Book("The B.F.G.", "Roald Dahl", 208, "not read yet");
-
-// Manually adding to the library
-myLibrary.push(theHobbit);
-myLibrary.push(theBFG);
-myLibrary.push(theGiver);
-
 btnDisplayLibrary.addEventListener("click", displayLibrary)
 
 // Step 4 stuff
 newBookForm.style.display = 'none'; // Hide the display until NEW BOOK button is pressed
-btnAddBook.addEventListener("click", addBookToLibrary);
 btnNewBookForm.addEventListener('click', () => {
     if (newBookForm.style.display = 'none') {
         newBookForm.style.display = 'block';
@@ -86,11 +80,10 @@ btnNewBookForm.addEventListener('click', () => {
 newBookForm.addEventListener('submit', (event) => {
     // https://stackoverflow.com/questions/3547035/getting-html-form-values
     // Check link above for help completing this function
-    let formData = new FormData(newBookForm);
-    // output as an object
-    console.log(Object.fromEntries(formData));
+    const formData = new FormData(event.target);
+    const formProps = Object.fromEntries(formData);
 
-    alert('Book created.');
+    let newBook = new Book(formProps.title, formProps.author, formProps.pages, formProps.readStatus);
     event.preventDefault();
 })
 
