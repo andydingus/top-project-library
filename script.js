@@ -45,10 +45,14 @@ function addBookToLibrary(book) {
 
 // Part of Step 5
 function removeFromLibrary() {
-    const index = myLibrary.indexOf(this);
+    // Thinking of trying to reference the text content of the <p> tag that is the sibling to the parentNode but unsure if I should go through with it
+    const divCardNode = this.parentNode;
+    const index = myLibrary.indexOf(divCardNode.getAttribute('data-index-number'));
+    // Index is apparently -1? Check that out
     if (index > -1) { // only splice array when item is found
-        array.splice(index, 1); // 2nd parameter means remove one item only
+        myLibrary.splice(index, 1); // 2nd parameter means remove one item only
     }
+    console.log(index);
     console.log(myLibrary);
 }
 
@@ -62,7 +66,7 @@ function displayLibrary() {
             bookCardText.textContent = myLibrary[i].title;
             removeFromLibraryButton.textContent = 'Remove from library';
             bookCard.setAttribute('class', 'book card');
-
+            bookCard.setAttribute('data-index-number', `${i}`);
             
             
     
@@ -71,7 +75,7 @@ function displayLibrary() {
             bookCard.appendChild(removeFromLibraryButton);
 
             // Set eventListener for the removeFromLibrary button
-            removeFromLibraryButton.addEventListener('click', removeFromLibrary())
+            removeFromLibraryButton.addEventListener('click', removeFromLibrary)
         }
 
         if (myLibrary.length == 0) {
