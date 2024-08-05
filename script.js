@@ -45,20 +45,35 @@ function addBookToLibrary(book) {
 
 // Part of Step 5
 function removeFromLibrary() {
-    // Thinking of trying to reference the text content of the <p> tag that is the sibling to the parentNode but unsure if I should go through with it
     const divCardNode = this.parentNode;
-    const index = myLibrary.indexOf(divCardNode.getAttribute('data-index-number'));
-    // Index is apparently -1? Check that out
+    const index = divCardNode.getAttribute('data-index-number');
+    console.log(`The data-index-number value is: ${index}`); // Debugging purposes
     if (index > -1) { // only splice array when item is found
         myLibrary.splice(index, 1); // 2nd parameter means remove one item only
     }
-    console.log(index);
-    console.log(myLibrary);
+    updateDisplayLibrary(divCardNode);
+    changeBtnDisplayLibrary();
 }
 
-// Working on Step 5 stuff. removeFromLibraryButton doesn't get an eventListener for some reason, look to fix that
+// Purpose of this: anytime a book is removed from the library using the "Remove Library" button, this should update it accordingly
+function updateDisplayLibrary(node){
+    if(myLibrary.length == 0){
+        divLibrary.replaceChildren();
+    } else if (myLibrary.length > 0) {
+        divLibrary.removeChild(node);
+    }
+}
+
+function changeBtnDisplayLibrary(){
+    if (myLibrary.length == 0) {
+        btnDisplayLibrary.textContent = 'Display library';
+    } else {
+        btnDisplayLibrary.textContent = 'Remove display';
+    }
+}
+
 function displayLibrary() {
-    if(divLibrary.innerHTML.trim().length == 0) {
+    if(divLibrary.innerHTML.trim().length == 0 && myLibrary.length > 0) {
         for (let i = 0; i < myLibrary.length; i++) {
             const bookCard = document.createElement('div');
             const bookCardText = document.createElement('p');
@@ -68,8 +83,6 @@ function displayLibrary() {
             bookCard.setAttribute('class', 'book card');
             bookCard.setAttribute('data-index-number', `${i}`);
             
-            
-    
             divLibrary.appendChild(bookCard);
             bookCard.appendChild(bookCardText);
             bookCard.appendChild(removeFromLibraryButton);
@@ -78,11 +91,7 @@ function displayLibrary() {
             removeFromLibraryButton.addEventListener('click', removeFromLibrary)
         }
 
-        if (myLibrary.length == 0) {
-            btnDisplayLibrary.textContent = 'Display library'
-        } else {
-            btnDisplayLibrary.textContent = 'Remove display';
-        }
+        changeBtnDisplayLibrary();
         
     } else {
         divLibrary.replaceChildren();
@@ -107,6 +116,7 @@ newBookForm.addEventListener('submit', (event) => {
     let newBook = new Book(formProps.title, formProps.author, formProps.pages, formProps.readStatus);
     event.preventDefault();
 })
+
 
 
 // addBookToLibrary(theHobbit);
