@@ -8,9 +8,12 @@ const bookPages = document.getElementById('pages');
 const bookRead = document.getElementById('read');
 const divLibrary = document.querySelector('.library');
 const newBookForm = document.getElementById('newBookForm');
+const dialog = document.querySelector('dialog');
+const msgParagraph = document.getElementById('message');
 
 const btnDisplayLibrary = document.getElementById('btnDisplayLibrary');
 const btnNewBookForm = document.getElementById('btnNewBookForm');
+const btnClose = document.getElementById('btnClose');
 
 
 
@@ -105,6 +108,8 @@ function displayLibrary() {
         changeBtnDisplayLibrary();
         
     } else {
+        // Stopped here. Look to replace all the alert messages with setting the text content on this element
+        msgParagraph.textContent = 'There are no books in your library. Add some!';
         divLibrary.replaceChildren();
         btnDisplayLibrary.textContent = 'Display library';
     }
@@ -127,12 +132,12 @@ function changeReadStatus(){
 
 btnDisplayLibrary.addEventListener("click", displayLibrary)
 
-// Step 4 stuff
-newBookForm.style.display = 'none'; // Hide the display until NEW BOOK button is pressed
 btnNewBookForm.addEventListener('click', () => {
-    if (newBookForm.style.display = 'none') {
-        newBookForm.style.display = 'block';
-    }
+    dialog.showModal();
+});
+
+btnClose.addEventListener('click', () => {
+    dialog.close();
 });
 
 newBookForm.addEventListener('submit', (event) => {

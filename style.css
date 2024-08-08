@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+h1 {
+    text-align: center;
+}
+
 div {
     padding: 5px;
 }
@@ -11,6 +15,17 @@ div {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+}
+
+/* New book form styles */
+form {
+    padding-bottom: 20px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;   
 }
 /* Styles for when the library is displayed */
 .book.card {

@@ -7,50 +7,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Step 3 -->
+    <h1>Project: Library</h1>
     <div>
-        <p>Step 3</p>
         <div class="library">
         </div>
         <button id="btnDisplayLibrary">Display library</button>
     </div>
-    
-
-    <!-- Lets look to use a form -->
-    <!-- Step 4 --> 
     <div>
-        <p>Step 4</p>
         <button id="btnNewBookForm">NEW BOOK</button>
-        <form id="newBookForm">
-            <fieldset>
-                <legend>Create a new book</legend>
-                <div>
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title">
-                </div>
-                
-                <div>
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" name="author">
-                </div>
-                
-                <div>
-                    <label for="pages"># of pages</label>
-                    <input type="number" id="pages" name="pages">
-                </div>
-                
-                <div>
-                    <p>Read?</p>
-                    <input type="radio" name="readStatus" id="hasRead" value="read">
-                    <label for="hasRead">Have read</label>
-
-                    <input type="radio" name="readStatus" id="notRead" value="notRead">
-                    <label for="notRead">Not read</label>
-                </div>
-                
-                <button type="submit">Create book</button>
-            </fieldset>
-        </form>
+        <dialog>
+            <form id="newBookForm">
+                <fieldset>
+                    <legend>Create a new book</legend>
+                    <div>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title">
+                    </div>
+                    
+                    <div>
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author">
+                    </div>
+                    
+                    <div>
+                        <label for="pages"># of pages</label>
+                        <input type="number" id="pages" name="pages">
+                    </div>
+                    
+                    <div>
+                        <p>Read?</p>
+                        <input type="radio" name="readStatus" id="hasRead" value="read">
+                        <label for="hasRead">Have read</label>
+    
+                        <input type="radio" name="readStatus" id="notRead" value="notRead">
+                        <label for="notRead">Not read</label>
+                    </div>
+                    
+                    <button type="submit">Create book</button>
+                </fieldset>
+            </form>
+            <button id="btnClose" autofocus>Close</button>
+        </dialog>
+        <p id="message"></p>
+        
     </div>
     <script src="script.js"></script>
 </body>
